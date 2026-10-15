@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Install the claude-project-kit workflow into a git repository.
+"""Install the AI-github-setup workflow into a git repository.
 
-    python3 /path/to/claude-project-kit/bootstrap.py --target . [options]
+    python3 /path/to/AI-github-setup/bootstrap.py --target . [options]
 
 Idempotent: run it again and nothing that exists is overwritten, except kit-owned files with
 --update. Everything it would do is shown first with --dry-run. Needs only Python 3.8+ and git;
@@ -81,8 +81,8 @@ issue as `- [ ] #<n> Title`; add *needs approval* / *server access* / ⚠️ to 
 ## 🧭 Needs decision: do not start
 """
 
-BLOCK_START = "<!-- claude-project-kit:start (managed by bootstrap.py; edit outside the markers) -->"
-BLOCK_END = "<!-- claude-project-kit:end -->"
+BLOCK_START = "<!-- AI-github-setup:start (managed by bootstrap.py; edit outside the markers) -->"
+BLOCK_END = "<!-- AI-github-setup:end -->"
 
 
 class Run:
@@ -348,7 +348,7 @@ def install_gitignore(run, target):
     text = path.read_text() if path.exists() else ""
     if re.search(r"^/?\.batch/?$", text, re.M):
         return
-    run.write(path, text.rstrip("\n") + ("\n" if text else "") + "# claude-project-kit batch logs\n.batch/\n",
+    run.write(path, text.rstrip("\n") + ("\n" if text else "") + "# AI-github-setup batch logs\n.batch/\n",
               "update" if path.exists() else "create")
 
 
@@ -370,7 +370,7 @@ def install_check(run, target, args):
 # Local mirror of CI: run this before every merge. Exit non-zero on any failure.
 # Must work from a clean checkout, need no secrets, and accept optional test selectors in "$@"
 # (e.g. a test path or name) so single tests can be run quickly. Keep it in sync with CI.
-# Detected by claude-project-kit{' (' + '; '.join(notes) + ')' if notes else ''}; refine as needed.
+# Detected by AI-github-setup{' (' + '; '.join(notes) + ')' if notes else ''}; refine as needed.
 set -euo pipefail
 cd "$(dirname "${{BASH_SOURCE[0]}}")/.."
 
@@ -423,7 +423,7 @@ def main():
     ap.add_argument("--backlog", type=int, help="number of an existing pinned backlog issue")
     ap.add_argument("--create-backlog", action="store_true", help="create + pin the backlog issue")
     ap.add_argument("--create-labels", action="store_true", help="create the workflow labels (gh)")
-    ap.add_argument("--kit-url", default="https://github.com/lukasreindlgit/claude-project-kit")
+    ap.add_argument("--kit-url", default="https://github.com/LukasReindlGit/AI-github-setup")
     ap.add_argument("--update", action="store_true", help="refresh kit-owned files in place")
     ap.add_argument("--force", action="store_true", help="overwrite project-owned files too")
     ap.add_argument("--dry-run", action="store_true", help="show what would happen, change nothing")

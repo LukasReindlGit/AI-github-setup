@@ -1,7 +1,7 @@
 # Working with Claude Code in this repo
 
 Entry point for agents: `CLAUDE.md`. Settings of the workflow: `.claude/workflow.json`.
-Installed from [claude-project-kit]({{KIT_URL}}); update it with `bootstrap.py --update` from there.
+Installed from [AI-github-setup]({{KIT_URL}}); update it with `bootstrap.py --update` from there.
 
 ## The model in one picture
 

@@ -1,4 +1,4 @@
-## Working on issues (claude-project-kit)
+## Working on issues (AI-github-setup)
 
 - Work is tracked **only in GitHub issues**; the pinned backlog **#{{BACKLOG}}** is the priority list
   (its order *is* the priority; `Now` before `Next`). New work → new issue from the template

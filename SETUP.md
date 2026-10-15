@@ -24,7 +24,7 @@ mechanical part; you do the project-specific part (steps 2 and 4).
 ## Step 0: Get the kit and the target in order
 
 ```bash
-git clone --depth 1 <kit-url> "$TMPDIR/claude-project-kit"   # or use the checkout you were given
+git clone --depth 1 <kit-url> "$TMPDIR/AI-github-setup"   # or use the checkout you were given
 cd <target repository>                                       # must be a git repo with a GitHub origin
 git status --short                                            # work on a clean tree; else tell the human
 gh auth status                                                # needed for labels + backlog issue
@@ -109,7 +109,7 @@ first real run with the human watching: `scripts/batch.py --max-issues 1`.
 
 ## Step 6: Hand over
 
-Commit the setup on its branch (`chore: set up claude-project-kit`) in logical commits. Do **not**
+Commit the setup on its branch (`chore: set up AI-github-setup`) in logical commits. Do **not**
 push or merge. Tell the human, briefly:
 
 - what was installed and what you adapted (check command, hard rules, format, triage);

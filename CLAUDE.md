@@ -1,4 +1,4 @@
-# claude-project-kit
+# AI-github-setup
 
 A template kit that installs an issue-driven Claude Code workflow into other repositories.
 

@@ -46,7 +46,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 
-# --- project settings: .claude/workflow.json (see SETUP.md of claude-project-kit) ---
+# --- project settings: .claude/workflow.json (see SETUP.md of AI-github-setup) ---
 CONFIG = json.loads((ROOT / ".claude" / "workflow.json").read_text())
 BACKLOG_ISSUE = CONFIG["backlog_issue"]  # pinned issue whose ordered checklist is the priority
 INTEGRATION = CONFIG["integration_branch"]  # agent integration branch

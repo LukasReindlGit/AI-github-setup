@@ -1,4 +1,4 @@
-# claude-project-kit
+# AI-github-setup
 
 A generic setup for working on GitHub projects with [Claude Code](https://claude.com/claude-code):
 issue-driven, one issue per session, tests as the gate, and **the human in control at exactly one
@@ -10,7 +10,7 @@ Extracted from a project that ran this way for months, with all project specific
 
 In the repository you want to set up, start Claude Code and say:
 
-> Set up this project with https://github.com/lukasreindlgit/claude-project-kit
+> Set up this project with https://github.com/LukasReindlGit/AI-github-setup
 
 Claude reads [`SETUP.md`](SETUP.md), asks a handful of questions (check command, base branch, push
 policy, high-risk areas), runs `bootstrap.py`, adapts the project-specific parts, verifies, and
