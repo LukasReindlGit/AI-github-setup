@@ -1,0 +1,43 @@
+name: Feature / task
+description: New functionality, improvement, or chore. Written so a developer or agent can finish it without asking.
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        After creating: add a priority label (`P0`–`P3`, or `needs-decision` if a stakeholder, legal or
+        architecture decision is open) and place the issue in the pinned backlog **#{{BACKLOG}}**.
+        The list order there is the priority.
+  - type: textarea
+    id: goal
+    attributes:
+      label: Goal
+      description: What should be possible afterwards, and for whom? Why does it matter?
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: Concrete, checkable outcomes. One checkbox each.
+      value: |
+        - [ ]
+    validations:
+      required: true
+  - type: textarea
+    id: verification
+    attributes:
+      label: Verification
+      description: How to prove it's done, e.g. which tests must exist or pass, what to click through, which screenshot to compare.
+    validations:
+      required: true
+  - type: textarea
+    id: area
+    attributes:
+      label: Affected area (optional)
+      description: Pages, models, files, or related issues (e.g. `src/auth/login.ts`, the settings page, blocks #12).
+  - type: textarea
+    id: out-of-scope
+    attributes:
+      label: Out of scope (optional)
+      description: What this issue deliberately does not cover.

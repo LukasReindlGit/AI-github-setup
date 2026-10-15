@@ -1,0 +1,46 @@
+name: Bug
+description: Something behaves differently than it should.
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        After creating: add a priority label (`P0`/`P1` for bugs) and place the issue in **#{{BACKLOG}}** (*Now* or *Next*).
+        Never paste real personal data, credentials or `.env` values.
+  - type: textarea
+    id: actual
+    attributes:
+      label: What happens
+      description: Observed behaviour, with the exact error text or a screenshot.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What should happen
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: User role, page or command, inputs. Minimal is best.
+      value: |
+        1.
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: Usually "a test reproduces the bug and passes after the fix" plus anything user-visible.
+      value: |
+        - [ ] Regression test reproduces the bug and passes after the fix
+        - [ ]
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Environment (optional)
+      description: Deployment (dev / staging / prod), browser or OS, commit or release.

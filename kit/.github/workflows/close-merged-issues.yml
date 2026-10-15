@@ -1,0 +1,42 @@
+name: Close merged issues
+
+# `Closes #NN` only fires on the repository's default branch. If humans merge the agent's work into
+# another branch first, issues finished by a Claude session (label `ai-merged`) would stay open.
+# This closes them as soon as their work is on {{BASE}}. Only `ai-merged` issues without `rework`
+# are touched, so epics and other open issues stay as they are.
+
+on:
+  push:
+    branches: [{{BASE}}]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  close:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Close ai-merged issues whose work is on {{BASE}}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          for n in $(gh issue list --repo "$GITHUB_REPOSITORY" --state open --label ai-merged \
+                       --limit 200 --json number,labels \
+                       -q '.[] | select([.labels[].name] | index("rework") | not) | .number'); do
+            # The issue's merge into the integration branch, or a commit that says it closes the issue.
+            sha=$(git log HEAD -1 --format=%h -i -E \
+                    --grep="^Merge branch '{{PREFIX}}${n}-" \
+                    --grep="(close[sd]?|fix(e[sd])?|resolve[sd]?) #${n}([^0-9]|\$)" || true)
+            if [ -n "$sha" ]; then
+              echo "Closing #$n (found in $sha)"
+              gh issue close "$n" --repo "$GITHUB_REPOSITORY" \
+                --comment "Closed automatically: the work is on \`{{BASE}}\` ($sha)."
+            fi
+          done

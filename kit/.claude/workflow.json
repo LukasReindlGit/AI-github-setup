@@ -1,0 +1,24 @@
+{
+  "repo": "{{REPO}}",
+  "backlog_issue": null,
+  "base_branch": "{{BASE}}",
+  "integration_branch": "{{INTEGRATION}}",
+  "branch_prefix": "{{PREFIX}}",
+  "protected_branches": ["main", "master", "develop"],
+  "allow_push": false,
+  "check_command": "{{CHECK}}",
+  "project_description": "",
+  "format": {},
+  "triage": {
+    "opus_labels": ["security"],
+    "opus_title_regex": "",
+    "sonnet_labels": ["documentation"],
+    "sonnet_title_regex": "\\b(typo|wording|css|styling|translation|i18n)\\b"
+  },
+  "limits": {
+    "max_turns": 250,
+    "run_timeout_hours": 4,
+    "max_runs_per_issue": 3,
+    "max_failures_in_a_row": 2
+  }
+}

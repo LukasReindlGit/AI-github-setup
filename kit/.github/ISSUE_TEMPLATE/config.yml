@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: "Backlog & priorities (#{{BACKLOG}})"
+    url: https://github.com/{{REPO}}/issues/{{BACKLOG}}
+    about: The pinned backlog orders all work. Check it before opening a new issue.
